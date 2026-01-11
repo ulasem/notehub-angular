@@ -1,0 +1,23 @@
+<div class="pagination">
+  <button
+    class="page-button"
+    [disabled]="currentPage === 1"
+    (click)="onPageChange(currentPage - 1)"
+  >
+    &lt;
+  </button>
+
+  @for (page of displayPages; track page) {
+  <button class="page-button" [class.active]="page === currentPage" (click)="onPageChange(page)">
+    {{ page }}
+  </button>
+  }
+
+  <button
+    class="page-button"
+    [disabled]="currentPage === pageCount"
+    (click)="onPageChange(currentPage + 1)"
+  >
+    &gt;
+  </button>
+</div>

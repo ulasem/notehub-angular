@@ -1,0 +1,18 @@
+<div class="container">
+  @if (isLoading) {
+  <p>Loading...</p>
+  } @if (error) {
+  <p>Error loading note details.</p>
+  } @if (note && !isLoading) {
+  <div class="item">
+    <div class="header">
+      <h2>{{ note.title }}</h2>
+      <span class="tag">{{ note.tag }}</span>
+    </div>
+    <p class="content">{{ note.content }}</p>
+    <p class="date">{{ formattedDate }}</p>
+
+    <a routerLink="/notes" class="back-link">← Back to Notes</a>
+  </div>
+  }
+</div>

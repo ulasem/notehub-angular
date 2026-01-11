@@ -1,0 +1,26 @@
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 800px;
+  text-align: center;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 2rem;
+}
+
+.description {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+}

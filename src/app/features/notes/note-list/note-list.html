@@ -1,0 +1,16 @@
+<ul class="list">
+  @for (note of notes; track note.id) {
+  <li class="list-item">
+    <h2 class="title">{{ note.title }}</h2>
+    <p class="content">{{ note.content }}</p>
+
+    <div class="footer">
+      <span class="tag">{{ note.tag }}</span>
+      <a [routerLink]="['/notes', note.id]" class="link">View details</a>
+      <button class="button" (click)="onDelete(note.id)" [disabled]="deletingId === note.id">
+        {{ deletingId === note.id ? 'Deleting...' : 'Delete' }}
+      </button>
+    </div>
+  </li>
+  }
+</ul>

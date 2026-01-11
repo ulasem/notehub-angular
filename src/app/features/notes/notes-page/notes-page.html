@@ -1,0 +1,29 @@
+<div class="notes">
+  <header class="toolbar">
+    <app-search-box [value]="search" (valueChange)="onSearchChange($event)"></app-search-box>
+
+    @if (totalPages > 1) {
+    <app-pagination
+      [pageCount]="totalPages"
+      [currentPage]="page"
+      (pageChange)="onPageChange($event)"
+    ></app-pagination>
+    }
+
+    <button class="button" (click)="openModal()">Create note +</button>
+  </header>
+
+  @if (isLoading) {
+  <p>Loading...</p>
+  } @if (isError) {
+  <p>Error loading notes.</p>
+  } @if (!isLoading && !isError && notes.length === 0) {
+  <p>No notes found.</p>
+  } @if (notes.length > 0) {
+  <app-note-list [notes]="notes" (noteDeleted)="onNoteDeleted($event)"></app-note-list>
+  } @if (isModalOpen) {
+  <app-modal (close)="closeModal()">
+    <app-note-form (close)="closeModal()" (created)="onNoteCreated($event)"></app-note-form>
+  </app-modal>
+  }
+</div>
